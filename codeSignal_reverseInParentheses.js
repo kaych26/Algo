@@ -1,6 +1,5 @@
-
-
 function reverseInParentheses(inputString) {
+  let i = 0;
   let s = inputString;
   let result = '';
 
@@ -19,6 +18,7 @@ function reverseInParentheses(inputString) {
       }
       else if (letter === '(') {
         // j += 1;
+        i += 1;
         const reverse = reverseParen(w.substring(j+1, w.length));
         
         reverse.forEach(l => { word.push(l); })
@@ -29,18 +29,17 @@ function reverseInParentheses(inputString) {
       }
       j += 1;
     }
+    return word;
   }
 
-  let i = 0;
   while (i < s.length) {
     if (s[i] !== '(' && s[i] !== ')') {
       result += s[i];
     }
     else {
-      // const reversed = reverseParen(s.substring(i+1, s.length)).join('');
       const reverse = reverseParen(s.substring(i + 1, s.length));
  
-      result += reverse.join();
+      result += reverse.join('');
       i += reverse.length+1;
       // i += 1;
     }
@@ -67,7 +66,12 @@ function reverseInParentheses(inputString) {
 // console.log(reverseInParentheses("one(abc(xyz))"));
 // console.log(reverseInParentheses("foo(bar(baz))blim"));
 // console.log(reverseInParentheses("foo(bar(baz))blim(xyz)(abc)foo"));
+console.log ('   foo(ab(xy)c)')
 console.log(reverseInParentheses("foo(ab(xy)c)"));
+
+console.log ('   foo(bar)baz')
+console.log(reverseInParentheses("foo(bar)baz"));
+
 
 
 
