@@ -1,7 +1,8 @@
+'use strict';
+
 function minTime(machines, goal) {
 
   machines.sort((a, b) => a - b);
-
   console.log(machines);
 
 
